@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
 const connectDB = require('./config/db');
+const bodyParser = require('body-parser');
 
 //Load env vars
 dotenv.config({ path: './config/config.env' });
@@ -15,12 +16,15 @@ const bootcamps = require('./routes/bootcamps');
 
 const app = express();
 
-const logger = (req, res, next) => {
-  req.hello = 'Hello';
-  console.log('Middleware ran');
-  next();
-};
-app.use(logger);
+// const logger = (req, res, next) => {
+//   req.hello = 'Hello';
+//   console.log('Middleware ran');
+//   next();
+// };
+// app.use(logger);
+
+// Body parser
+app.use(express.json());
 
 //Mount routers
 app.use('/api/v1/bootcamps', bootcamps);

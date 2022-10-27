@@ -22,9 +22,11 @@ exports.getBootcamp = async (req, res, next) => {
     if (!bootcamp) {
       return res.status(400).json({ sucess: false });
     }
-    res.status(200).json({ sucess: true, data: bootcamp });
-  } catch (error) {}
-  res.status(400).json({ sucess: false });
+    res.status(200).json({ success: true, data: bootcamp });
+  } catch (error) {
+    // res.status(400).json({ sucess: false });
+    next(error);
+  }
 };
 
 // @desc  Create bootcamp
@@ -33,9 +35,9 @@ exports.getBootcamp = async (req, res, next) => {
 exports.createBootcamp = async (req, res, next) => {
   try {
     const bootcamp = await Bootcamp.create(req.body);
-    res.status(200).json({ sucess: true, data: bootcamp });
+    res.status(200).json({ success: true, data: bootcamp });
   } catch (error) {
-    res.status(400).json({ sucess: false });
+    res.status(400).json({ success: false });
   }
 };
 

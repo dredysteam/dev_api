@@ -11,6 +11,7 @@ Steps
 8-git init
 9-npm i mongoose --save
 10- npm i colors
+11 - npm i slugify
 
 
 

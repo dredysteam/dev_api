@@ -12,6 +12,7 @@ Steps
 9-npm i mongoose --save
 10- npm i colors
 11 - npm i slugify
+12 - npm i node-geocoder
 
 
 
